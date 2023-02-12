@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/resources/css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <title>LoginAdmin</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color: #ffffff;" href="/home">BecasCUT</a>
+        </div>
+    </nav>
+
+    <!--     <div class="container" id="divPrincipal">
+        <div class="card" id="divCard" style="margin: auto; margin-top: 50px; width: 400px;">
+            <img src="./usuario.png" class="card-img-top"
+                style="height: 200px; width: 200px; margin: auto; margin-top: 10px;">
+            <form action="/loginAdmin" method="post">
+                <div class="card-body" style="margin: auto; text-align: center;">
+                    <label for="user">ADMINISTRADOR</label>
+                    <div class="form-floating" id="divGeneral">
+                        <input type="email" class="form-control " name="user" id="user" placeholder="Usuario" required
+                            autofocus style="width: 350px; margin-bottom: 10px;">
+                        <label for="floatingInput">Usuario</label>
+                    </div>
+
+                    <div class="form-floating" id="divGeneral">
+                        <input type="password" class="form-control" name="pass" id="pass" placeholder="Contraseña"
+                            required style="width: 350px; margin-bottom: 10px;">
+                        <label for="floatingName">Constraseña</label>
+                    </div>
+                    <div class="form-group" id="divGeneral">
+                        <input class="btn btn-primary btn-success" type="submit" name="txtRegistro"
+                            value="Iniciar sesion" style="width: 350px;">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div> -->
+
+
+    <div class="login">
+        <h1>Iniciar sesion</h1>
+        <form class="form-group needs-validation" action="/loginAdmin" method="post" novalidate>
+            <label for="username">
+                <!-- font awesome icon -->
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="email" name="correo" placeholder="Correo" id="correo" autofocus autocomplete="off" required>
+            <label for="password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="password" placeholder="Password" id="password" autocomplete="off" required>
+            <!-- <div class="invalid-feedback" style="text-align: center;">El correo o la contraseña es INCORRECTO!</div> -->
+            <input type="submit" value="Login" id="liveAlertBtn">
+        </form>
+        <div style="text-align: center;">
+            <a href="registrarAdmin">Registrate</a>
+        </div>
+        
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!--     <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script> -->
+
+    <% if(typeof alert !="undefined" ){ %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirnButton %> ,
+                timer: <%= time %>
+            }).then(() => {
+                    window.location = "/loginAdmin <%= ruta %>"
+                })
+        </script>
+        <% } %>
+
+</body>
+
+</html>
